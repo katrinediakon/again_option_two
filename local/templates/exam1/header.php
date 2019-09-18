@@ -105,9 +105,13 @@ Array(
 <?if($site!="/"):?>
 <div class="breadcrumbs-box">
     <div class="inner-wrap">
-        <a href="">Главная</a>
-        <a href="">Мебель</a>
-        <span>Выставки и события</span>
+      <?$APPLICATION->IncludeComponent("bitrix:breadcrumb", "template1", Array(
+      	"PATH" => "",	// Путь, для которого будет построена навигационная цепочка (по умолчанию, текущий путь)
+      		"SITE_ID" => "s1",	// Cайт (устанавливается в случае многосайтовой версии, когда DOCUMENT_ROOT у сайтов разный)
+      		"START_FROM" => "0",	// Номер пункта, начиная с которого будет построена навигационная цепочка
+      	),
+      	false
+      );?>
     </div>
 </div>
 <?endif?>
